@@ -1,0 +1,86 @@
+ <html>
+<head>
+
+
+
+
+<link href="..//css/bootstrap.min.css" rel="stylesheet">
+<link href="..//css/ingreso.css" rel="stylesheet">
+
+
+<!-- main css -->
+<link href="..//css/style.css" rel="stylesheet" type="text/css">
+
+<!-- media queries css -->
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="css/media-queries.css" rel="stylesheet" type="text/css">
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<link href="..//css/ingreso.css" rel="stylesheet">
+<!-- 1)incluimos angular en el projecto con la siguiente libreria que ya la tenemos localmente -->
+  <script SRC="..//bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
+<!-- 2) referencia al .js que contiene los controles de angular -->
+  <script SRC="..//js/appAngular.js" TYPE="text/javascript"></script>
+
+
+
+
+</head>
+ 
+ <body ng-app="ModuloAngular" ng-controller="controlLogin">     
+ <center>
+<div id="pagewrap" >
+  <div id="content" >
+
+         
+    <div id="formLogin" class="container" >
+           
+      <form  class="form-ingreso " onsubmit="validarLogin();return false";>
+        <h2  style='color: blue' class="form-ingreso-heading">Ingrese sus datos</h2>
+
+        
+       
+<!--
+        <input type="email" id="correo" name="email" ng-model="email" placeholder="Ingrese su email" value=""><br>
+        <input type="password" id="clave" minlength="7" ng-model="password" placeholder="clave" required="true" value=""><br>
+        <button class="button-green" id="login" ng-click="Login()" ng-disabled="myForm.$invalid"><span>Login </span></button>
+
+          -->
+ 
+
+                <input type="email" id="correo"  ng-model="email"  class="form-control" placeholder="Correo electronico" required="" autofocus="" >
+
+
+                   
+        
+        <input type="nombre" id="otro" minlength="3" class="form-control" placeholder="Nombre" required=" ">
+
+
+      
+        
+        <input type="password" id="clave" minlength="7" ng-model="password" class="form-control" placeholder="clave" required="true">
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="recordarme" unchecked> Recordame
+          </label>
+          
+        </div>
+        <button class="btn btn-lg btn-primary btn-block"  id="login" ng-click="Login()" ng-disabled="myForm.$invalid"  >    Ingresar</button>
+      <p></p>
+      <p></p>
+      </form>
+
+
+
+
+    </div> <!-- /container -->
+<center><a id="barraLogin" href="..//index.html"   class="btn btn-danger" >Cancelar</a></center>
+</center>
+</div>
+</div>
+
+</body>
+</html>
+
+    
+  

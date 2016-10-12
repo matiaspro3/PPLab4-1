@@ -1,0 +1,133 @@
+<!--
+
+<body ng-app="ModuloAngular" ng-controller="controlAlta">
+
+-->
+      <center>
+
+    <div class="contenedor">
+     
+
+
+<div class="container">
+        
+      <form class="form-Alta animated slideLeft"  name="frmregistro" enctype="multipart/form-data">
+
+<!--
+            DIRTY ES CUANDO SE MODIFICA EL CAMPO
+            TOUCH PARA CUANDO CLIKEO
+            ng-pattern ="/^[a-zA-Z\s]*$/"  SOLO LETRAS.
+ -->
+        <h2 id="titulo" style="color:violet">Registro</h2><br>
+        <span ng-show="frmregistro.$error.required">Requerde que todos los campos son obligatorios</span>
+        <br>      <br>
+ 
+<h1 style='color: blue'> Bienvenido {{usuario.dni}}</h1>
+ <br><br>
+
+
+        <br>
+        <input type="number" class="form-control" id="dni" name="dni" ng-model="usuario.dni" placeholder="Ingrese su dni" min="10000000" max="99999999" required>
+        <span style="color:red" ng-show="frmregistro.dni.$dirty && frmregistro.dni.$invalid">DNI INVALIDO.</span>
+      </span><br>
+<br>
+
+
+        <span style="color:blue">Sexo: </span>
+        <input type="radio"  name="sexo" id="m" ng-model="usuario.sexo" value="m" required><span style="color:blue">M </span> 
+        <input type="radio" name="sexo" id="f" ng-model="usuario.sexo" value="f" required><span style="color:blue">F </span>
+         <span style="color:red" ng-show="frmregistro.sexo.$invalid"> Seleccione una opcion.</span>
+          </span><br>
+<br>
+        
+
+
+
+
+        <span style="color:red" ng-show="frmregistro.estado.$invalid"> Seleccione un Partido Politico.</span>
+         </span><br>
+        <select class="form-control" name ="estado" ng-model="usuario.estado" required>
+
+          <option></option>
+          <option value="estado1">Radical</option>
+          <option value="estado2">Democrata</option>
+          <option value="estado2">Peronista</option>
+          </select>
+      <br>
+
+
+
+        Fecha de Votacion
+        <input type="date" class="form-control" id="fechaNac" name="fechaNac" ng-model="usuario.fechaNac" placeholder="Fecha Nac. yyyy-mm-dd" max="1998-01-02" min="1977-01-01" required>
+
+        <span style="color:red" ng-show="frmregistro.fechaNac.$dirty && frmregistro.fechaNac.$invalid">Fecha INVALIDA.</span>
+      </span><br>
+<br>
+             
+        <br>
+    
+
+<!--
+        
+        <input type="checkbox" ng-model="usuario.lenguaje"  unchecked > ¿Especialidad Alguna?:  
+        <br></br>        
+        
+        <input type="checkbox"    ng-if="usuario.lenguaje"  ng-model="usuario.lenguajeCobol" name="c" value="cobol" unchecked > Cobol 
+        <br></br>
+        <input type="checkbox" ng-if="usuario.lenguaje" ng-model="usuario.lenguajePascal" name="pascal" value="python" > Pascal
+        <br></br>
+        <input type="checkbox" ng-if="usuario.lenguaje" ng-model="usuario.lenguajeJava" name="java" value="java" > Java
+        <br></br>
+        <input type="checkbox" ng-model="usuario.lenguajeNada"  name="nada" value="nada" ng-checked="usuario.lenguaje" > Ninguna
+       
+        <br></br>
+-->
+
+
+         <input type="reset"  class="btn btn-warning" > <br> <br/>
+
+        <button  class="btn btn-lg btn-success btn-block" name="login" id="login" ng-disabled="frmregistro.$invalid " ng-click="Alta()"><span>Alta </span></button><br/>
+
+        <a id="barraLogin" ng-click="Volver()"  class="btn btn-danger" >Cancelar </a>
+
+
+<br></br>
+            <span ng-show="frmregistro.$error.required">Todos los campos son obligatorios</span>
+         
+      </form>
+ </div>
+</center>
+
+<!--
+<span ng-show="frmregistro.nombre.$touched && frmregistro.usuario.nombre.$invalid">The name is required.</span>
+
+<span ng-show="frmregistro.$valid">valido----</span>   <span ng-show="frmregistro.$invalid">--------ivalido</span>
+
+ <h3 style="color:red" >Estado:{{frmregistro.$valid}}</h3>
+
+ -->
+
+ <!-- checkbox
+
+
+ !usuario.lenguajePascal || !usuario.lenguajeCobol || !usuario.lenguajeJava
+<input type="checkbox" ng-model="ver" />
+        <span>{{ver}}</span>
+        <input type="text" name="apellido" ng-if="ver" ng-model="mascota.nombrea" placeholder="ingrese apellido" value="" required/>
+        <span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*
+        </span>
+        <input type="text" name="nombre" ng-show="ver" ng-model="persona.nombre" placeholder="ingrese nombre" value="" /> 
+
+        <span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+        <input type="email" name="correo" ng-model="persona.correo" placeholder="ingrese correo" value="" required/>
+        <span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+        <p style='color: black;'>*El DNI no se puede modificar.</p> ": "" ; ?>
+        
+        <input type="password" name="pass" ng-model="persona.password"  value="" />
+        <input type="password" name="pass2" ng-model="persona.password2"  value="" />
+
+        <input type="hidden" name="idOculto" id="id" value="" />
+
+
+
+ -->

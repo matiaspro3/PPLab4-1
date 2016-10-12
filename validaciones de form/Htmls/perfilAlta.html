@@ -1,0 +1,166 @@
+
+
+
+
+</head>
+ 
+ <body ng-app="ModuloAngular" ng-controller="controlLogin">     
+ <center>
+<div id="pagewrap" >
+  <div id="content" >
+
+         
+    <div id="formLogin" class="container" >
+           
+      <form  class="form-ingreso " name ="regUSer">
+        <h2  style='color: red' class="form-ingreso-heading">Registro de usuario</h2>
+
+        
+       
+<!--
+        <input type="email" id="correo" name="email" ng-model="email" placeholder="Ingrese su email" value=""><br>
+        <input type="password" id="clave" minlength="7" ng-model="password" placeholder="clave" required="true" value=""><br>
+        <button class="button-green" id="login" ng-click="Login()" ng-disabled="myForm.$invalid"><span>Login </span></button>
+
+      input type="text" class="form-control" id="nombre" name="nombre" ng-pattern ="/^[a-zA-Z\s]*$/" ng-model="usuario.nombre" placeholder="Ingrese su nombre" minlength=4  required>
+
+          -->
+ 
+
+                <input type="email" id="user"  name="user" class="form-control" placeholder="Correo electronico" required autofocus="" ng-model = "usuarios.email" required>
+
+
+  <br>
+        <input type="password" class="form-control" id="password"  name="pass" ng-model="usuarios.pass" placeholder="Ingrese su clave" value=""  required>
+      
+
+
+        <input type="password" class="form-control" id="password2" ng-model="usuarios.pass2" placeholder="Repita su clave" value=""  
+         required>
+
+        <br>
+
+
+        
+        <span style="color:red" ng-show=" usuarios.pass!=usuarios.pass2"> Las contraseNIas no coinciden.</span>
+
+             
+       
+            
+        <br>
+
+        <button  class="btn btn-lg btn-success btn-block" name="login" id="login" ng-disabled="regUSer.$invalid || usuarios.pass!=usuarios.pass2" ng-click="Login()"><span>Registrarse </span></button><br/> 
+        </button>
+  
+
+
+
+
+
+         <a id="barraLogin" ng-click="Volver()"  class="btn btn-danger" >Cancelar </a>
+      <p></p>
+      <p></p>
+      </form>
+
+
+
+
+
+    </div> <!-- /container -->
+
+
+</div>
+</div>  
+
+<!--Foto-->
+<div class="container" style='color: blue'  nv-file-drop="" uploader="SubidorDeArchivos" filters="queueLimit, customFilter">
+
+            
+
+            <div class="row">
+
+                <div >
+
+                    <h3>Seleccionas Las Fotos que desees</h3>   <br>
+
+                    <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                    
+                    <input type="file" nv-file-select="" uploader="SubidorDeArchivos" multiple  /><br/>
+
+                </div>
+
+                <div class="col-md-9" style="margin-bottom: 40px">
+
+                    
+                    <p>Cantidad Seleccionadas: {{ SubidorDeArchivos.queue.length }}</p>
+                        <blockquote  class="form-ingreso " ><blockquote><blockquote><blockquote>
+                        <blockquote><blockquote><blockquote><blockquote>
+
+                        
+                                   <table class="table">
+                        <thead>
+                            <tr>
+                                <th width="50%">Nombre</th>
+                                <th ng-show="SubidorDeArchivos.isHTML5">Tamaño</th>
+                                <th ng-show="SubidorDeArchivos.isHTML5">Progreso</th>
+                                <th>Estado</th>
+                                <th>Que desea hacer?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in SubidorDeArchivos.queue">
+                                <td>{{ item.file.name }}
+                                  <div ng-show="SubidorDeArchivos.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+                                </td>
+                                <td ng-show="SubidorDeArchivos.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                <td ng-show="SubidorDeArchivos.isHTML5">
+                                    <div class="progress" style="margin-bottom: 0;">
+                                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                                </td>
+                                <td nowrap>
+                                    <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                        <span class="glyphicon glyphicon-upload"></span> Subir
+                                    </button>
+                                    
+                                    <!--<button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                        <span class="glyphicon glyphicon-ban-circle"></span> Cancelar  </button> -->
+                                    <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                        <span class="glyphicon glyphicon-trash"></span> Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                  </div>  
+            </div>
+
+        </div>
+             
+
+<!--Foto-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+
+
+
+</head>
+ 
+ <body ng-app="ModuloAngular" ng-controller="controlLogin">     
+ <center>
+<div id="pagewrap" >
+  <div id="content" >
+
+         
+    <div id="formLogin" class="container" >
+           
+      <form  class="form-ingreso " name= "frminicio" >
+        <h3 style='color: blue'> Bienvenido {{usuario.nombre}}</h3>
+        <br>
+        <h4  style='color: blue' class="form-ingreso-heading">Ingrese sus datos</h4>
+<br>
+        
+       
+<!--
+        <input type="email" id="correo" name="email" ng-model="email" placeholder="Ingrese su email" value=""><br>
+        <input type="password" id="clave" minlength="7" ng-model="password" placeholder="clave" required="true" value=""><br>
+        <button class="button-green" id="login" ng-click="Login()" ng-disabled="myForm.$invalid"><span>Login </span></button>
+
+      input type="text" class="form-control" id="nombre" name="nombre" ng-pattern ="/^[a-zA-Z\s]*$/" ng-model="usuario.nombre" placeholder="Ingrese su nombre" minlength=4  required>
+
+          -->
+ <!--
+
+                <input type="email" id="email"   class="form-control" placeholder="Correo electronico" required autofocus="" ng-model = "usuarios.email" >
+
+     -->   
+
+
+
+     <input type="text" class="form-control" id="nombre" name="nombre" ng-pattern ="/^[a-zA-Z\s]*$/" ng-model="usuarios.user" placeholder="Ingrese su usuario" minlength=4  required>
+       <span style="color:red" ng-show="frminicio.nombre.$dirty && frminicio.nombre.$invalid">Nombre INVALIDO  minimo 4 letras.</span>
+      </span><br>
+
+        <br>
+        <input type="number" class="form-control" id="dni" name="dni" ng-model="usuarios.dni" placeholder="Ingrese su dni" 
+        min="10000000" max="99999999" required>
+        <span style="color:red" ng-show="frminicio.dni.$dirty && frminicio.dni.$invalid">DNI INVALIDO.</span>
+      </span><br>
+
+
+
+        <input type="password" id="clave" minlength="4" ng-model="usuarios.pass" class="form-control" placeholder="clave" required="true">
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="recordarme" unchecked> Recordame
+          </label>
+          
+        </div>
+
+<button class="btn btn-lg btn-success btn-block" ng-click="authenticate('github')">GitHub</button>
+
+
+        <button class="btn btn-lg btn-primary btn-block"  id="login" ng-click="Login()" ng-disabled="frminicio.$invalid"  >    Ingresar</button>
+         <a id="barraLogin" ng-click="Volver()"  class="btn btn-danger" >Cancelar </a>
+      <p></p>
+      <p></p>
+      </form>
+
+
+
+
+    </div> <!-- /container -->
+
+
+</div>
+</div>  

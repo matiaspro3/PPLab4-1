@@ -1,0 +1,141 @@
+.form-Alta {   /*      cuadro de ingreso                */
+    padding-top: 40px;
+    padding-bottom: 40px;
+      color: white;   /*letra*/
+
+    /*  position:relative;
+      margin-left: left;
+      margin-right: auto;   */
+    
+/*  centrando el cuadro
+   */
+   /*
+    float:left;
+    margin-left: center;*/
+     /*    ...................*/ 
+  /*-webkit-animation: efectoMio 10s infinite; 
+    animation: efectoMio 10s infinite;
+*/
+     -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+/*@keyframes efectoMio {
+    from {background-color: darkslategray;}
+    to {background-color: slategrey;}
+}*/
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+
+
+/* este es el cuadro de fondo*/
+.form-Alta{
+  max-width: 330px;
+  padding: 15px;
+  /*position: center;*/
+
+
+}
+
+
+ 
+}
+/**/
+
+.form-Alta .form-Alta-heading,
+.form-Alta .checkbox {
+  margin-bottom: 10px;
+}
+.form-Alta .checkbox {
+  font-weight: normal;
+}*/
+.form-Alta .form-control {
+/*  position: relative;*/
+  height: auto;
+   
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-Alta .form-control:focus {
+  z-index: 2;
+}
+.form-Alta input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-Alta input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+.slideLeft{
+  animation-name: slideLeft;
+  -webkit-animation-name: slideLeft;  
+
+  animation-duration: 1s; 
+  -webkit-animation-duration: 1s;
+
+  animation-timing-function: ease-in-out; 
+  -webkit-animation-timing-function: ease-in-out;   
+
+  visibility: visible !important; 
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(150%);
+  }
+  50%{
+    transform: translateX(-8%);
+  }
+  65%{
+    transform: translateX(4%);
+  }
+  80%{
+    transform: translateX(-4%);
+  }
+  95%{
+    transform: translateX(2%);
+  }     
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slideLeft {
+  0% {
+    -webkit-transform: translateX(150%);
+  }
+  50%{
+    -webkit-transform: translateX(-8%);
+  }
+  65%{
+    -webkit-transform: translateX(4%);
+  }
+  80%{
+    -webkit-transform: translateX(-4%);
+  }
+  95%{
+    -webkit-transform: translateX(2%);
+  }     
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+/*

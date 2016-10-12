@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title>Form Login</title>
+  
+<!-- media queries css -->
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="..//css/media-queries.css" rel="stylesheet" type="text/css">
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+
+<!-- main css color negro -->
+<link href="..//css/style.css" rel="stylesheet" type="text/css">
+
+  <!--   estilo tipo form de loguin-->
+<link rel="stylesheet" type="text/css" href="..//css/estilo.css">
+  
+
+<!-- que hace??-->
+
+<!--<link rel="stylesheet" type="text/css" href="..//css/animacion.css">-->
+
+<!-- que hace??-->  
+<link href="..//css/ingreso.css" rel="stylesheet">  
+
+
+
+<!-- angular-->
+<!-- 1)incluimos angular en el projecto con la siguiente libreria que ya la tenemos localmente -->
+  <script SRC="..//bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
+<!-- 2) referencia al .js que contiene los controles de angular -->
+  <script SRC="..//js/app.js" TYPE="text/javascript"></script>
+  
+
+
+</head>
+
+<body ng-app="ModuloAngular" ng-controller="controlLogin">
+<div id="pagewrap" >
+  <div id="content" >
+
+    <div id="formLogin" class="container" >
+      <form class="form-ingreso" name="myForm">
+        <label>Login</label><br><br>
+        <input type="email" id="correo" name="email" ng-model="email" placeholder="Ingrese su email" value=""><br>
+        <input type="password" id="clave" minlength="7" ng-model="password" placeholder="clave" required="true" value=""><br>
+        <button class="button-green" id="login" ng-click="Login()" ng-disabled="myForm.$invalid"><span>Login </span></button>
+      </form>
+    </div>
+
+
+    </div>
+
+
+
+    <h3>Estado: {{myForm.$valid}}</h3>
+
+
+
+</body>
+</html>
+
+    
+  
