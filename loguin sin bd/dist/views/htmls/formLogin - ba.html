@@ -1,0 +1,127 @@
+<html>
+<head>
+
+	<title>Loguin</title>
+	  
+		<!--?php require_once"partes/referencias.php" ;/**/?-->
+		<!--final de Estilos-->    
+
+      <!--script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script-->
+
+
+
+
+<!-- media queries css -->
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+
+
+
+
+<script type="text/javascript" src="js/funcionesAjax.js"></script>
+<script type="text/javascript" src="js/funcionesLogin.js"></script>
+<script type="text/javascript" src="js/funcionesABM.js"></script>
+<script type="text/javascript" src="js/funcionesUser.js"></script>
+<script type="text/javascript" src="js/funcionDeslogueoAutomatico.js"></script>
+
+
+
+<!-- main css -->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<!-- media queries css -->
+ 
+<link href="css/media-queries.css" rel="stylesheet" type="text/css">
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+
+<div id="pagewrap" >
+
+
+<!-- 1)incluimos angular en el projecto con la siguiente libreria que ya la tenemos localmente -->
+	<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
+<!-- 2) referencia al .js que contiene los controles de angular -->
+ 	<script SRC="js/app.js" TYPE="text/javascript"></script>
+</head>
+<!--<body ng-app="ABMangularPHP" ng-controller="controlAlta">-->
+		<body>
+	<!--?php		
+		require_once"partes/barraDeMenu.php";
+	 ?-->
+
+ 
+              <ul class="nav nav-tabs">
+		         <li  class="btn btn-info animated bounceInLeft" >
+		         	<a href="index.html">
+		         		 <span class="glyphicon glyphicon-list-alt">&nbsp;</span>
+		         		 Inicio
+		         	</a>
+		         </li>
+		         <li class="btn btn-info animated bounceInLeft" >
+		         	<a href="formAlta.html">
+		         		<span class="glyphicon glyphicon-plus-sign">&nbsp;</span>
+		         		Alta
+		         	</a>
+		         </li>
+		         <li  class="btn btn-info animated bounceInLeft" >
+		         	<a href="formGrilla.html"> 
+		         		<span class="glyphicon glyphicon-th" >&nbsp;</span>
+		         			Grilla</a>
+		         		</li>
+		        	<span id="tituloBarra"  class="animated bounceInRight">{{DatoTest}}ABM - PHP - Angular Versión 1.0.1 &nbsp;&nbsp;&nbsp;</span>
+      </ul>
+		
+
+	<div class="container">
+		<div class="page-header">
+			<center> <h1>Datos  {{DatoTest}}</h1>   </center>     
+		</div>
+		<div class="CajaInicio animated bounceInRight">
+			<h1> <!--?php echo $titulo; ?-->titulo {{mascota}} </h1>
+
+			<form id="FormIngreso"  name="FormIngreso" enctype="multipart/form-data" >
+
+				<input type="checkbox" ng-model="ver" />
+				<span>{{ver}}</span>
+				<input type="text" name="apellido" ng-if="ver" ng-model="mascota.nombre" placeholder="ingrese apellido" value="" required/>
+				<span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*
+				</span>
+				<input type="text" name="nombre" ng-show="ver" ng-model="persona.nombre" placeholder="ingrese nombre" value="" /> 
+
+
+
+				<span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+				<input type="email" name="correo" ng-model="persona.correo" placeholder="ingrese correo" value="" required/>
+				<span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+				<p style='color: black;'>*El DNI no se puede modificar.</p> ": "" ; ?>
+				
+
+
+				<input type="password" name="pass" ng-model="persona.password"  value="" />
+				<input type="password" name="pass2" ng-model="persona.password2"  value="" />
+
+
+				<input type="hidden" name="idOculto" id="id" value="" />
+				<!--
+				<input type="file" name="foto" />
+
+
+				<img  src="fotos/pordefecto.png" class="fotoform" id="foto"/>
+				<p style="  color: black;">*La foto se actualiza al guardar.</p>
+				-->
+
+<!-- ESTOY LLAMADO LA FUNCION GUARDAR QUE ESTA DEFINIDA EN LA VARIABLE SCOPE EN EL CONTROLADOR-->
+				<a class="btn btn-info " name="guardar" ng-disabled="FormIngreso.$invalid" ng-click="Guardar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
+					
+				<input type="hidden" value="" id="idParaModificar" name="agregar" />
+				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
+				</div>
+
+			</form>
+	</div>
+	</div>
+	</div>
+</body>
+</html>

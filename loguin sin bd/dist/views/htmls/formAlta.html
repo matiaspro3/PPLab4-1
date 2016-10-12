@@ -1,0 +1,164 @@
+<html>
+<head>
+	<title>Alta de Usuario</title>
+ <link href="..//css/bootstrap.min.css" rel="stylesheet">
+<link href="..//css/ingreso.css" rel="stylesheet">
+
+
+<!-- main css -->
+<link href="..//css/style.css" rel="stylesheet" type="text/css">
+<link href="..//css/estilo.css" rel="stylesheet" type="text/css">
+<!-- media queries css -->
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="css/media-queries.css" rel="stylesheet" type="text/css">
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<link href="..//css/alta.css" rel="stylesheet">
+
+<!-- 1)incluimos angular en el projecto con la siguiente libreria que ya la tenemos localmente -->
+  <script SRC="..//bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
+<!-- 2) referencia al .js que contiene los controles de angular -->
+  <script SRC="..//js/appAngular.js" TYPE="text/javascript"></script>
+
+</head>
+
+<body ng-app="ModuloAngular" ng-controller="controlAlta">
+      <center>
+
+ <h1 style='color: blue'> Bienvenido {{usuario.nombre}}</h1>
+    <div class="contenedor">
+     
+
+
+<div class="container">
+
+      <form class="form-Alta"  name="frmregistro" enctype="multipart/form-data">
+
+<!--
+            DIRTY ES CUANDO SE MODIFICA EL CAMPO
+            TOUCH PARA CUANDO CLIKEO
+            ng-pattern ="/^[a-zA-Z\s]*$/"  SOLO LETRAS.
+ -->
+        <label id="titulo">Registro</label><br>
+        <input type="text" class="form-control" id="nombre" name="nombre" ng-pattern ="/^[a-zA-Z\s]*$/" ng-model="usuario.nombre" placeholder="Ingrese su nombre" minlength=4  required>
+       <span style="color:red" ng-show="frmregistro.nombre.$dirty && frmregistro.nombre.$invalid">Nombre INVALIDO Solo minimo 4 letras.</span>
+      </span><br>
+
+      
+
+        <input type="text" class="form-control" id="apellido" name="apellido" ng-pattern ="/^[a-zA-Z\s]*$/" ng-model="usuario.apellido" placeholder="Ingrese su apellido" required="true">
+        <span style="color:red" ng-show="frmregistro.apellido.$dirty && frmregistro.apellido.$invalid">Apellido INVALIDO.</span>
+      </span><br>
+
+        <input type="number" class="form-control"id="edad" name="edad" ng-model="usuario.edad" min="18" max="99" placeholder="Ingrese su edad" required="true">
+        <span style="color:red" ng-show="frmregistro.edad.$dirty && frmregistro.edad.$invalid">Edad INVALIDA.</span>
+      </span><br>
+
+
+
+
+        Sexo: 
+        <input type="radio"  name="sexo" id="m" ng-model="usuario.sexo" value="m" required> M
+        <input type="radio" name="sexo" id="f" ng-model="usuario.sexo" value="f" required>  F
+         <span style="color:red" ng-show="frmregistro.sexo.$invalid"> Seleccione una opcion.</span>
+          </span><br>
+
+        
+
+        <br>
+        <input type="number" class="form-control" id="dni" name="dni" ng-model="usuario.dni" placeholder="Ingrese su dni" required>
+        <span style="color:red" ng-show="frmregistro.dni.$dirty && frmregistro.dni.$invalid">DNI INVALIDO.</span>
+      </span><br>
+
+        <input type="email" class="form-control" id="email" name="email" ng-model="usuario.email" placeholder="Ingrese su email" required>             
+        <span style="color:red" ng-show="frmregistro.email.$error.email">Email INVALIDO.</span>
+        </span><br>
+
+
+
+
+
+
+        <!--
+        
+        <span ng-show="frmregistro.email.$error.required">El Email es obligatorio</span>
+        <span style="color:red" ng-show="frmregistro.email.$dirty && frmregistro.email.$invalid">
+        
+        <span ng-show="frmregistro.email.$error.email">Email INVALIDO.</span>
+        </span>
+
+  -->
+
+
+
+
+        <span style="color:red" ng-show="frmregistro.estado.$invalid"> Seleccione una opcion.</span>
+         </span>
+        <select class="form-control" name ="estado" ng-model="usuario.estado" required>
+
+          <option></option>
+          <option value="estado1">Soltero</option>
+          <option value="estado2">Casado</option>
+          <option value="estado2">Virgen</option>
+          </select>
+      <br>
+
+
+
+        
+        <input type="date" class="form-control" id="fechaNac" name="fechaNac" ng-model="usuario.fechaNac" placeholder="Fecha Nac. yyyy-mm-dd" max="1998-01-02" min="1977-01-01" required>
+
+        <span style="color:red" ng-show="frmregistro.fechaNac.$dirty && frmregistro.fechaNac.$invalid">Fecha INVALIDA.</span>
+      </span><br>
+
+        <input type="password" class="form-control" id="password"  name="password" ng-model="usuario.password" placeholder="Ingrese su clave" value="" required>
+      
+
+
+        <input type="password" class="form-control" id="password2" ng-model="usuario.password2" placeholder="Repita su clave" value="" required>
+
+        <br>
+
+        
+        <span style="color:red" ng-show="usuario.password!=usuario.password2"> Las contraseNIas no coinciden.</span>
+
+                  
+
+
+        Especialidad:  
+        <br></br>
+        <input type="checkbox" ng-model="usuario.lenguajeCobol" name="c" value="cobol" unchecked > Cobol
+        <br></br>
+        <input type="checkbox" ng-model="usuario.lenguajePascal" name="pascal" value="python" > Pascal
+        <br></br>
+        <input type="checkbox" ng-model="usuario.lenguajeJava" name="java" value="java" > Java
+
+
+        <br></br>
+
+
+
+         <input type="reset"  class="btn btn-warning" > <br> <br/>
+
+        <button  class="btn btn-lg btn-success btn-block" name="login" id="login" ng-disabled="frmregistro.$invalid || usuario.password!=usuario.password2" ng-click="Registrarse()"><span>Alta </span></button><br/>
+
+        <a id="barraLogin" href="..//index.html"   class="btn btn-danger" >Cancelar</a>
+
+
+<br></br>
+            <span ng-show="frmregistro.$error.required">Todos los campos son obligatoios</span>
+         
+      </form>
+ </div>
+</center>
+
+<!--
+<span ng-show="frmregistro.nombre.$touched && frmregistro.usuario.nombre.$invalid">The name is required.</span>
+
+<span ng-show="frmregistro.$valid">valido----</span>   <span ng-show="frmregistro.$invalid">--------ivalido</span>
+
+ <h3 style="color:red" >Estado:{{frmregistro.$valid}}</h3>
+
+ -->
+</body>
+
+</html>
