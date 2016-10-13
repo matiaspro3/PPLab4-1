@@ -4,7 +4,7 @@ include "clases/Usuarios.php";
 
 	$DatosPorPost = file_get_contents("php://input");
 	$respuesta = json_decode($DatosPorPost);
-
+/*
 if ( !empty( $_FILES ) ) 
 {
     $temporal = $_FILES[ 'file' ][ 'tmp_name' ];
@@ -17,7 +17,8 @@ copy($temporal, $server);
  
 
     echo "correcto";
-}
+}*/
+
 if(isset($_GET['accion']))
 {
 	$accion=$_GET['accion'];
@@ -56,17 +57,17 @@ else{//Si es un post entra por el else!
 			break;
 		}
 		case "insertar":
-		{/*
+		{
 			if($respuesta->datos->persona->foto!="pordefecto.png")
 			{
-				//$rutaVieja="../servidor/".$respuesta->datos->persona->foto;$_FILES[ 'file' ][ 'tmp_name' ];
+				$rutaVieja="../servidor/usuarios/".$respuesta->datos->persona->foto;
 				//$rutaVieja=$_FILES[ 'file' ][ 'tmp_name' ];
 				//$rutaNueva=$respuesta->datos->persona->dni.".".PATHINFO($rutaVieja, PATHINFO_EXTENSION);
-				//$rutaNueva=$rutaVieja;
-				//copy($rutaVieja, "../fotos/".$rutaNueva);
+				$rutaNueva="../fotos/".$respuesta->datos->persona->foto;
+				copy($rutaVieja,$rutaNueva);
 			//	unlink($rutaVieja);
-			//	$respuesta->datos->persona->foto=$rutaNueva;
-			}*/
+				//$respuesta->datos->persona->foto=$rutaNueva;
+			}
 			Persona::InsertarPersona($respuesta->datos->persona);
 			break;
 		}

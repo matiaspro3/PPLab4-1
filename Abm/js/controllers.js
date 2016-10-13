@@ -283,9 +283,42 @@ app.controller('controlPersonaVotacion', function($scope, $http, FileUploader, $
   $scope.persona.partido;
   $scope.persona.sexo;
   $scope.persona.foto='pordefecto.png';
-   $scope.uploader=new FileUploader({url:'PHP/nexo.php'});
- // $scope.uploader=new FileUploader({url:'servidor/archivos.php'});
+  // $scope.uploader=new FileUploader({url:'PHP/nexo.php'});
+ $scope.uploader=new FileUploader({url:'servidor/archivos.php'});
 //$scope.uploader=new FileUploader({url:'servidor/archivos.php',data:{ user: {foto:$scope.persona.foto}}});
+
+
+
+$scope.uploader.onAfterAddingFile = function(item) {
+  //var fileExtension = '.' + item.file.name.split('.').pop();
+  //item.file.name = Math.random().toString(36).substring(7) + new Date().getTime() + fileExtension;
+
+  item.file.name =$scope.persona.dni+'.jpg';
+};
+
+$scope.uploader.onSuccessItem=function(item, response, status, headers)
+  {
+
+       $scope.uploader.onBeforeUploadItem(item);
+/*
+    $http.post('PHP/nexo.php', { datos: {accion :"insertar",persona:$scope.persona}})
+    .then(function(respuesta) {       
+       //aca se ejetuca si retorno sin errores        
+     console.info("respuesta", respuesta.data);
+     alert("VOTO REGISTRADO!");
+     $state.go("inicio");
+    
+  },function errorCallback(response) {        
+      //aca se ejecuta cuando hay errores
+      console.log( response);           
+    });
+
+  console.info("Ya guardé el archivo.", item, response, status, headers);
+*/  };
+
+
+
+
   $scope.Votar=function(){
 
 
@@ -293,11 +326,11 @@ app.controller('controlPersonaVotacion', function($scope, $http, FileUploader, $
       if($scope.uploader.queue[0]!=undefined)
       {
         var nombreFoto = $scope.uploader.queue[0]._file.name;
-      //  $scope.persona.foto= $scope.persona.dni+'.jpg';
-      $scope.persona.foto= nombreFoto;
+        $scope.persona.foto= $scope.persona.dni+'.jpg';
+     //$scope.persona.foto= nombreFoto;
       }
 
-      $scope.uploader.uploadAll();
+     // $scope.uploader.uploadAll();
       console.info("persona a guardar:   .......",$scope.persona);
       
 
@@ -330,23 +363,11 @@ app.controller('controlPersonaVotacion', function($scope, $http, FileUploader, $
     });*/
   }
 
-  $scope.uploader.onSuccessItem=function(item, response, status, headers)
-  {
-/*
-    $http.post('PHP/nexo.php', { datos: {accion :"insertar",persona:$scope.persona}})
-    .then(function(respuesta) {       
-       //aca se ejetuca si retorno sin errores        
-     console.info("respuesta", respuesta.data);
-     alert("VOTO REGISTRADO!");
-     $state.go("inicio");
-    
-  },function errorCallback(response) {        
-      //aca se ejecuta cuando hay errores
-      console.log( response);           
-    });
 
-  console.info("Ya guardé el archivo.", item, response, status, headers);
-*/  };
+  
+
+
+
 
 });
 
