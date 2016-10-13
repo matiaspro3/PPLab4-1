@@ -2,13 +2,22 @@
 include_once '../jwt/vendor/autoload.php';
 use \Firebase\JWT\JWT;
 
+include "clases/Personas.php";
+include "clases/Usuarios.php";
+
 $datosDelModeloPorPOST = file_get_contents('php://input'); // Metodo para traer los datos de JS.
 $usuario = json_decode($datosDelModeloPorPOST);
 
-if ($usuario->usuario == 'admin' && $usuario->dni == '11111111' && $usuario->password == 'admin'){
-	
+//if ($usuario->usuario == 'admin' && $usuario->dni == '11111111' && $usuario->password == 'admin'){
+
+$log=usuario::TraerUnUser($usuario);
+
+
+if ($log!=false){	
 	$ClaveDeEncritacion = 'estaEsLaClave';
-	$token["usuario"] = "unusuario";
+	$token["usuario"] = $log->usuario;
+	$token["dni"] = $log->dni;
+	$token["pass"] = $log->password;
 	$token["perfil"]="admin";
 	$token["iat"]=time();
 	$token["exp"]=time()+60;

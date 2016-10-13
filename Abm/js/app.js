@@ -3,7 +3,7 @@ var app = angular.module('ABMangularPHP', ['ui.router', 'ABMangularPHP.controlle
 
 app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   
-  $authProvider.loginUrl = 'PPLab4/PHP/auth.php'; //Ruta del archivo auth que esta en jwt y direcciona a PHP
+  $authProvider.loginUrl = 'PPLab4-1/Abm/PHP/auth.php'; //Ruta del archivo auth que esta en jwt y direcciona a PHP
   $authProvider.tokenName = 'ElNombreDelToken'; //nombre largo
   $authProvider.tokenPrefix = 'Aplicacion'; //sarasa
   $authProvider.authHeader = 'data';
@@ -61,12 +61,17 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
                     }
                 }
             })
+
+
+
       .state('usuario', {
                 url : '/usuario',
                 abstract:true,
                 templateUrl : 'vistas/abstractaUsuario.html',
                 controller : 'controlUsuario'
             })
+
+
       .state('usuario.menu', {
                 url: '/usermenu',
                 views: {
@@ -94,81 +99,12 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
                     }
                 }
             })
-      .state('juegos', {
-                url : '/juegos',
-                abstract:true,
-                templateUrl : 'vistas/abstractaJuegos.html',
-                controller : 'controlJuegos'
-            })
-      .state('juegos.menu', {
-                url: '/juegosmenu',
+    .state('usuario.grilla', {
+                url: '/grilla',
                 views: {
                     'contenido': {
-                        templateUrl: 'vistas/juegosMenu.html',
-                        controller : 'controljuegosMenu'
-                    }
-                }
-            })
-      .state('juegos.adivinaelnumero1', {
-                url: '/adivinaelnumero1',
-                views: {
-                    'contenido': {
-                        templateUrl: 'vistas/juegos/AdivinaElNumero1.html',
-                        controller : 'controlJuegosAdivinaElNumero1'
-                    }
-                }
-            })
-      .state('juegos.adivinaelnumero2', {
-                url: '/adivinaelnumero2',
-                views: {
-                    'contenido': {
-                        templateUrl: 'vistas/juegos/AdivinaElNumero2.html',
-                        controller : 'controlJuegosAdivinaElNumero2'
-                    }
-                }
-            })
-      .state('juegos.agilidadaritmetica1', {
-                url: '/agilidadaritmetica1',
-                views: {
-                    'contenido': {
-                        templateUrl: 'vistas/juegos/AgilidadAritmetica1.html',
-                        controller : 'controlJuegosAgilidadAritmetica1'
-                    }
-                }
-            })
-      .state('juegos.agilidadaritmetica2', {
-                url: '/agilidadaritmetica2',
-                views: {
-                    'contenido': {
-                        templateUrl: 'vistas/juegos/AgilidadAritmetica2.html',
-                        controller : 'controlJuegosAgilidadAritmetica2'
-                    }
-                }
-            })
-      .state('juegos.piedrapapeltijera1', {
-                url: '/piedrapapeltijera1',
-                views: {
-                    'contenido': {
-                        templateUrl: 'vistas/juegos/PiedraPapelTijera1.html',
-                        controller : 'controlJuegosPiedraPapelTijera1'
-                    }
-                }
-            })
-      .state('juegos.piedrapapeltijera2', {
-                url: '/piedrapapeltijera2',
-                views: {
-                    'contenido': {
-                        templateUrl: 'vistas/juegos/PiedraPapelTijera2.html',
-                        controller : 'controlJuegosPiedraPapelTijera2'
-                    }
-                }
-            })
-      .state('juegos.reflejosdaltonicos', {
-                url: '/reflejosdaltonicos',
-                views: {
-                    'contenido': {
-                        templateUrl: 'vistas/juegos/ReflejosDaltonicos1.html',
-                        controller : 'controlJuegosReflejosDaltonicos1'
+                        templateUrl: 'vistas/usuarioGrilla.html',
+                        controller : 'controlUsuarioGrilla'
                     }
                 }
             })

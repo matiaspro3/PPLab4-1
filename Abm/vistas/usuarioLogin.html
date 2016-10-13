@@ -7,11 +7,15 @@
         <input type="password" id="clave" minlength="4" ng-model="usuario.password" placeholder="clave" required="true" value=""><br>
         <button class="button-green" id="login" ng-click="Login()" ng-disabled="myForm.$invalid"><span>Login </span></button><br><br>
 
-
+<!--
         <button class="btn btn-github" ng-click="authenticate('github')"><a class="fa fa-github"></a> Login con GitHub</button>
-
+-->
       </form>
     </div>
-    <h1>Estado22: {{myForm.$valid}}</h1>
+
+        
+    <h1 style="color:pink;" ng-if ="!myForm.$valid">Todos los campos son obligatorios</h1>
+
+    <h1 style="color:green;" ng-if ="myForm.$valid">Muy bien. a Loguearse!!</h1>
 
     

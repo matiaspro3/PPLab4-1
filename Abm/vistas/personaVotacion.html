@@ -5,7 +5,7 @@
             html, body { height: 100%; }
 </style>
 
-    <div class="Frm animated bounceInLeft">
+    <div class="Frm animated bounceInLeft" style="background-color:powderblue;">
       <form class=""  name="myForm" enctype="multipart/form-data">
         <label class="miEstilo" id="titulo">VOTACION</label><br>
         
@@ -28,28 +28,28 @@
 
 
 <div>
-    <h3>Select files</h3>
-    Multiple
+    <h3>Agrega imagenes!</h3>
+
     <!--<div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }"> -->
     <div nv-file-drop="" uploader="uploader">
         <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well my-drop-zone">
-            Another drop zone with its own settings
+            Arrastra aqui las fotos que quieras.
         </div>
     </div>
 </div>
 
 <div >
-    <h3>Upload queue</h3>
-    <p>Queue length: {{ uploader.queue.length }}</p>
+    
+    <p>Cantidad de Fotos : {{ uploader.queue.length }}</p>
 
 <table class='table table-hover table-responsive' align="center">
     <thead>
         <tr>
-            <th >Name</th>
-            <th ng-show="uploader.isHTML5">Size</th>
-            <th ng-show="uploader.isHTML5">Progress</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th >Nombre</th>
+            <th ng-show="uploader.isHTML5">Tamaño</th>
+            <th ng-show="uploader.isHTML5">Progreso</th>
+            <th>Estado</th>
+            <th>Accion</th>
         </tr>
     </thead>
     <tbody>
@@ -70,13 +70,13 @@
             </td>
             <td nowrap>
                 <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                    <span class="glyphicon glyphicon-upload"></span> Upload
+                    <span class="glyphicon glyphicon-upload"></span> Subir 
                 </button>
                 <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                    <span class="glyphicon glyphicon-ban-circle"></span> Cancelar
                 </button>
                 <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
-                    <span class="glyphicon glyphicon-trash"></span> Remove
+                    <span class="glyphicon glyphicon-trash"></span> Remover
                 </button>
             </td>
         </tr>
@@ -86,5 +86,7 @@
 <button  class="button-green" name="login" id="login" ng-disabled="myForm.$invalid" ng-click="Votar()"><span>VOTAR </span></button>
 </form>
 </div>
+        
+    <h1 style="color:red;" ng-if ="!myForm.$valid">Complete todos los campos!</h1>
 
-    <h1>Estado:{{myForm.$valid}}</h1>
+    <h1 style="color:blue;" ng-if ="myForm.$valid">Bien!! A votarr!!</h1>
