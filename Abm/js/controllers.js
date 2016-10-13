@@ -411,7 +411,82 @@ app.controller('controlPersonaGrilla', function($scope, $http, $state, $auth) {
   $scope.Modificar=function(id){
     
     console.log("Modificar"+id);
+    $state.go("persona.modificarVotacion");
   }
 
 });
 
+
+app.controller('controlPersonaVotacionMOD', function($scope, $http, FileUploader, $state) {
+  $scope.persona={};
+  $scope.persona.fecha;
+  $scope.persona.dni;
+  $scope.persona.partido;
+  $scope.persona.sexo;
+  $scope.persona.foto='pordefecto.png';
+ $scope.uploader=new FileUploader({url:'servidor/archivos.php'});
+
+
+$scope.uploader.onAfterAddingFile = function(item) {
+  item.file.name =$scope.persona.dni+'.jpg';
+};
+
+$scope.uploader.onSuccessItem=function(item, response, status, headers)
+  {
+
+       $scope.uploader.onBeforeUploadItem(item);
+
+ };
+
+
+
+
+  $scope.Votar=function(){
+
+
+
+    console.log($scope.uploader.queue);
+      if($scope.uploader.queue[0]!=undefined)
+      {
+        var nombreFoto = $scope.uploader.queue[0]._file.name;
+        $scope.persona.foto= $scope.persona.dni+'.jpg';
+      }
+
+    
+
+      console.info("persona a guardar:   .......",$scope.persona);
+      
+
+       $http.post("PHP/nexo.php",{ datos:{accion :"borrar", persona:$scope.persona, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}})
+    .then(function(respuesta) {  
+     
+  },function errorCallback(response) {        
+     
+      console.log( response);           
+    });
+
+       $http.post('PHP/nexo.php', { datos: {accion :"insertar",persona:$scope.persona}})
+    .then(function(respuesta) {  
+     alert("VOTO MODIFICADO!");
+     $state.go("persona.grilla");
+    
+  },function errorCallback(response) {        
+     
+      console.log( response);           
+    });
+
+
+
+
+
+  }
+
+
+
+
+  
+
+
+
+
+});

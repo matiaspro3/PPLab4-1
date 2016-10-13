@@ -52,6 +52,18 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
                     }
                 }
             })
+
+      .state('persona.modificarVotacion', {
+                      url: '/ModificarVotacion',
+                      views: {
+                          'contenido': {
+                              templateUrl: 'vistas/personaVotacionMOD.html',
+                              controller : 'controlPersonaVotacionMOD'
+                          }
+                      }
+                  })
+
+
       .state('persona.grilla', {
                 url: '/grilla',
                 views: {
